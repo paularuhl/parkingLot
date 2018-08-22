@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace test_ConsoleApp
+namespace ParkingLot_Ruhl_Paula
 {
     /// esto tendria que ser una interface tho, but how do i do that
     public interface IParkingLot
@@ -30,99 +30,11 @@ namespace test_ConsoleApp
 
     }
 
-
-    class ServicioExterno
-    {
-        public void enviarEmail(string mail, string mensaje, string algomas)
-        {
-            Console.WriteLine("Facturacion enviada correctamente a contadores@estacionamiento.com");
-        }
-    }
-
-    class ParkingLot
-    {
-        //miembros
-        private int cantidadEstacionados = 0;
-        private int precioPorDia = 20;
-
-        //propiedades
-        private int? CantidadEstacionados
-        {
-            get
-            {
-                int? r = null;
-                if (cantidadEstacionados != 0)
-                {
-                    r = cantidadEstacionados;
-                }
-                return r;
-            }
-        }
-        private int EspaciosDisponibles
-        {
-            get
-            {
-                int espacios = 100;
-                if (CantidadEstacionados != null)
-                {
-                    espacios -= (int)CantidadEstacionados;
-                }
-                return espacios;
-            }
-        }
-        public int PrecioPorDia
-        {
-            get { return precioPorDia; }
-            set { precioPorDia = value; }
-        }
-
-        public void facturarEstadia(int precio)
-        {
-            if (CantidadEstacionados != null)
-            {
-                int montoTotal = precio * (int)CantidadEstacionados;
-                Console.WriteLine("Valor facturado total: ${0}", montoTotal);
-
-            }
-        }
-
-        public void ingresoDetectado()
-        {
-            if (CantidadEstacionados == null)
-            {
-                cantidadEstacionados = 1;
-            }
-            else if (CantidadEstacionados < 100)
-            {
-                cantidadEstacionados++;
-            }
-            else
-            {
-                Console.WriteLine("No quedan espacios disponibles");
-                Console.ReadKey();
-            }
-        }
-        public void egresoDetectado()
-        {
-            if (CantidadEstacionados != null)
-            {
-                cantidadEstacionados--;
-            }
-            else
-            {
-                Console.WriteLine("Error, no hay autos estacionados");
-                Console.ReadKey();
-            }
-        }
-
-    }
-
-    class executeParkingLot
+    class Program
     {
         static void Main(string[] args)
         {
             ParkingLot p = new ParkingLot();
-            ServicioExterno servicio = new ServicioExterno();
             int opcion, salir = 0;
             do
             {
@@ -149,7 +61,6 @@ namespace test_ConsoleApp
                             break;
                         case 4:
                             p.facturarEstadia(p.PrecioPorDia);
-                            servicio.enviarEmail("contadores@estacionamiento.com", "esto es un mensaje", "data data data");
                             Console.ReadKey();
                             break;
                         case 5:
