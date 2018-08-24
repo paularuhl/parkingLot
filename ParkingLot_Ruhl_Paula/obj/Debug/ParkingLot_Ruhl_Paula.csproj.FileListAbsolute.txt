@@ -12,3 +12,10 @@ D:\VisualStudio\parkingLot\ParkingLot_Ruhl_Paula\obj\Debug\ParkingLot_Ruhl_Paula
 D:\VisualStudio\parkingLot\ParkingLot_Ruhl_Paula\obj\Debug\ParkingLot_Ruhl_Paula.csproj.CoreCompileInputs.cache
 D:\VisualStudio\parkingLot\ParkingLot_Ruhl_Paula\obj\Debug\ParkingLot_Ruhl_Paula.exe
 D:\VisualStudio\parkingLot\ParkingLot_Ruhl_Paula\obj\Debug\ParkingLot_Ruhl_Paula.pdb
+C:\Users\palu\Desktop\parkinglot\parkingLot\ParkingLot_Ruhl_Paula\bin\Debug\ParkingLot_Ruhl_Paula.exe.config
+C:\Users\palu\Desktop\parkinglot\parkingLot\ParkingLot_Ruhl_Paula\bin\Debug\ParkingLot_Ruhl_Paula.exe
+C:\Users\palu\Desktop\parkinglot\parkingLot\ParkingLot_Ruhl_Paula\bin\Debug\ParkingLot_Ruhl_Paula.pdb
+C:\Users\palu\Desktop\parkinglot\parkingLot\ParkingLot_Ruhl_Paula\obj\Debug\ParkingLot_Ruhl_Paula.csprojAssemblyReference.cache
+C:\Users\palu\Desktop\parkinglot\parkingLot\ParkingLot_Ruhl_Paula\obj\Debug\ParkingLot_Ruhl_Paula.csproj.CoreCompileInputs.cache
+C:\Users\palu\Desktop\parkinglot\parkingLot\ParkingLot_Ruhl_Paula\obj\Debug\ParkingLot_Ruhl_Paula.exe
+C:\Users\palu\Desktop\parkinglot\parkingLot\ParkingLot_Ruhl_Paula\obj\Debug\ParkingLot_Ruhl_Paula.pdb

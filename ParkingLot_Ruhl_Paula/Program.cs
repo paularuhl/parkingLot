@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace ParkingLot_Ruhl_Paula
 {
-    /// esto tendria que ser una interface tho, but how do i do that
     public interface IParkingLot
     {
         int? CantidadEstacionados

@@ -51,7 +51,7 @@ namespace ParkingLot_Ruhl_Paula
             {
                 int montoTotal = precio * (int)CantidadEstacionados;
                 mensaje = "Valor facturado total: $" + montoTotal;
-                Console.WriteLine("Valor facturado total: ${0}", montoTotal);
+                Console.WriteLine(mensaje);
             }
             ServicioExterno.EnviarEmail("Facturacion del dia", mensaje, "contadores@estacionamiento.com");
         }
