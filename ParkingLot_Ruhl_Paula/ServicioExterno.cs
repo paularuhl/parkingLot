@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ParkingLot_Ruhl_Paula
 {
-    class ServicioExterno
+    public class ServicioExterno
     {
-        public static void EnviarEmail(string asunto, string mensaje, string mail)
+        public static void EnviarEmail(string asunto, string cuerpo, string destinatario)
         {
-            Console.WriteLine("Facturacion enviada correctamente a {0}", mail);
+            Console.WriteLine("{0}\n{1}\n\nEmail enviado correctamente a: {2}", asunto, cuerpo, destinatario);
         }
     }
 }

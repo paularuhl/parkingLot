@@ -6,84 +6,64 @@ using System.Threading.Tasks;
 
 namespace ParkingLot_Ruhl_Paula
 {
-    class ParkingLot
+    class ParkingLot : IParkingLot
     {
-        //miembros
-        private int cantidadEstacionados = 0;
-        private int precioPorDia = 20;
+        #region Propiedades
 
-        //propiedades
-        private int? CantidadEstacionados
-        {
-            get
-            {
-                int? r = null;
-                if (cantidadEstacionados != 0)
-                {
-                    r = cantidadEstacionados;
-                }
-                return r;
-            }
-        }
-        private int EspaciosDisponibles
-        {
-            get
-            {
-                int espacios = 100;
-                if (CantidadEstacionados != null)
-                {
-                    espacios -= (int)CantidadEstacionados;
-                }
-                return espacios;
-            }
-        }
-        public int PrecioPorDia
-        {
-            get { return precioPorDia; }
-            set { precioPorDia = value; }
-        }
+        public int? CantidadEstacionados { get; set; } = null;
+        public int EspaciosDisponibles { get; set; } = 100;
+        public int PrecioPorDia { get; set; } = 20;
 
-        public void facturarEstadia(int precio)
+        #endregion
+
+        #region Metodos
+
+        public void FacturarEstadia(int precio)
         {
             string mensaje = "";
-
             if (CantidadEstacionados != null)
             {
                 int montoTotal = precio * (int)CantidadEstacionados;
                 mensaje = "Valor facturado total: $" + montoTotal;
-                Console.WriteLine(mensaje);
             }
             ServicioExterno.EnviarEmail("Facturacion del dia", mensaje, "contadores@estacionamiento.com");
         }
 
-        public void ingresoDetectado()
+        public void IngresoDetectado()
         {
             if (CantidadEstacionados == null)
             {
-                cantidadEstacionados = 1;
+                CantidadEstacionados = 1;
+                EspaciosDisponibles--;
             }
             else if (CantidadEstacionados < 100)
             {
-                cantidadEstacionados++;
+                CantidadEstacionados++;
+                EspaciosDisponibles--;
             }
             else
             {
                 Console.WriteLine("No quedan espacios disponibles");
                 Console.ReadKey();
+
             }
         }
-        public void egresoDetectado()
+        public void EgresoDetectado()
         {
             if (CantidadEstacionados != null)
             {
-                cantidadEstacionados--;
+                CantidadEstacionados--;
+                EspaciosDisponibles++;
+                if (CantidadEstacionados == 0) CantidadEstacionados = null;
             }
             else
             {
                 Console.WriteLine("Error, no hay autos estacionados");
                 Console.ReadKey();
+
             }
         }
+        #endregion
 
     }
 }
