@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ParkingLot_Ruhl_Paula
 {
+    //
     class ParkingLot : IParkingLot
     {
         #region Propiedades
@@ -18,17 +19,27 @@ namespace ParkingLot_Ruhl_Paula
 
         #region Metodos
 
+        /// <summary>
+        /// Calcula la facturación del dia en base al precio actual, 
+        /// multiplicado por la cantidad de autos estacionados.
+        /// Luego la envia a quien corresponda por medio del servicio externo.
+        /// </summary>
         public void FacturarEstadia(int precio)
         {
-            string mensaje = "";
+            int montoTotal;
+            string mensaje;
+
             if (CantidadEstacionados != null)
-            {
-                int montoTotal = precio * (int)CantidadEstacionados;
-                mensaje = "Valor facturado total: $" + montoTotal;
-            }
+                mensaje = "Valor facturado total: $" + (montoTotal = precio * (int)CantidadEstacionados);
+            else
+                mensaje = "No se pudo facturar: no hay autos estacionados hoy.";
+
             ServicioExterno.EnviarEmail("Facturacion del dia", mensaje, "contadores@estacionamiento.com");
         }
 
+        /// <summary>
+        /// Ingresa un auto sumandolo a los estacionados y restando un espacio libre.
+        /// </summary>
         public void IngresoDetectado()
         {
             if (CantidadEstacionados == null)
@@ -43,26 +54,31 @@ namespace ParkingLot_Ruhl_Paula
             }
             else
             {
-                Console.WriteLine("No quedan espacios disponibles");
+                Console.Write("No quedan espacios disponibles");
                 Console.ReadKey();
-
             }
         }
+
+        /// <summary>
+        /// Egresa un auto restandolo de los estacionados y sumando su espacio libre.
+        /// </summary>
         public void EgresoDetectado()
         {
             if (CantidadEstacionados != null)
             {
                 CantidadEstacionados--;
                 EspaciosDisponibles++;
-                if (CantidadEstacionados == 0) CantidadEstacionados = null;
+
+                if (CantidadEstacionados == 0)
+                    CantidadEstacionados = null;
             }
             else
             {
-                Console.WriteLine("Error, no hay autos estacionados");
+                Console.Write("Error, no hay autos estacionados");
                 Console.ReadKey();
-
             }
         }
+
         #endregion
 
     }

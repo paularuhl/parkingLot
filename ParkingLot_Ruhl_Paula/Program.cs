@@ -15,7 +15,9 @@ namespace ParkingLot_Ruhl_Paula
 
             do
             {
-                Console.Write("Opciones\n1. Ingreso de auto\n2. Egreso de auto\n3. Cambiar precio actual ${0}\n4. Facturar Estadia\n5. Salir\n", p.PrecioPorDia);
+                Console.Write("Menu\n1. Ingreso de auto\n2. Egreso de auto\n3. Cambiar precio actual ${0}\n4. Facturar Estadia\n5. Salir\n\nIngrese opcion: ", p.PrecioPorDia);
+
+                //validates string or not
                 if (int.TryParse(Console.ReadLine(), out int opcion) == false)
                 { opcion = 0; }
 
@@ -39,11 +41,12 @@ namespace ParkingLot_Ruhl_Paula
                         salir = 1;
                         break;
                     default:
-                        Console.WriteLine("Error, la opcion no existe");
+                        Console.Write("Error, la opcion no existe");
                         Console.ReadKey();
                         break;
                 }
                 Console.Clear();
+
             } while (salir == 0);
 
         }

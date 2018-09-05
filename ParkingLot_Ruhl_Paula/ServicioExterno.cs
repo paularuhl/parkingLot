@@ -8,9 +8,12 @@ namespace ParkingLot_Ruhl_Paula
 {
     public class ServicioExterno
     {
+        /// <summary>
+        /// Genera el cuerpo de un e-mail para enviar la facturación correspondiente.
+        /// </summary>
         public static void EnviarEmail(string asunto, string cuerpo, string destinatario)
         {
-            Console.WriteLine("{0}\n{1}\n\nEmail enviado correctamente a: {2}", asunto, cuerpo, destinatario);
+            Console.Write("{0}\n{1}\n\nEmail enviado correctamente a: {2}", asunto, cuerpo, destinatario);
         }
     }
 }
